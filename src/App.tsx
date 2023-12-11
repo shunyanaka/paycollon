@@ -5,6 +5,7 @@ import { Doughnut } from "react-chartjs-2";
 import { Chart, ArcElement } from "chart.js";
 import ChartDataLabels from "chartjs-plugin-datalabels";
 Chart.register(ArcElement);
+Chart.register(ArcElement, ChartDataLabels);
 
 const Container = styled.div`
   text-align: center;
@@ -143,7 +144,7 @@ const doughnutOptions = {
       formatter: (value: number, ctx: any) => {
         // データセットからラベルを取得
         let labels = ctx.chart.data.labels;
-        return labels[ctx.dataIndex] + `: &{value}`;
+        return labels[ctx.dataIndex] + `: ${value}`;
       },
     },
   },
