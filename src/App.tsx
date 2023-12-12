@@ -112,28 +112,48 @@ const Column = styled.div`
 
 // 円グラフのデータとオプションを設定
 const graph1 = {
-  labels: ["利用したい", "やや利用したい", "どちらとも言えない"],
+  labels: [
+    "利用したい",
+    "やや利用したい",
+    "どちらとも言えない",
+    "やや利用したくない",
+    "利用したくない",
+  ],
   datasets: [
     {
-      data: [300, 50, 100],
-      backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
-      hoverBackgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
+      data: [14, 26.4, 32.2, 13.2, 14.2],
+      backgroundColor: ["#FFA500", "#FFD700", "#A9A9A9", "#C0C0C0", "#D3D3D3"],
+      hoverBackgroundColor: [
+        "#FFA500",
+        "#FFD700",
+        "#A9A9A9",
+        "#C0C0C0",
+        "#D3D3D3",
+      ],
     },
   ],
 };
 
 const graph2 = {
-  labels: ["オプション1", "オプション2", "オプション3"],
+  labels: ["持っていない", "持っている"],
   datasets: [
     {
-      data: [300, 50, 100],
-      backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
-      hoverBackgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
+      data: [76.6, 24.4],
+      backgroundColor: ["#FFA500", "#A9A9A9"],
+      hoverBackgroundColor: ["#FFA500", "#A9A9A9"],
     },
   ],
 };
 
+// 円グラフのコンテナをスタイル付きで定義
+const DoughnutContainer = styled.div`
+  width: 600px; // ここで円グラフのサイズを調整
+  height: 600px;
+  margin: auto; // 中央揃えにする場合
+`;
+
 const doughnutOptions = {
+  cutout: 0, // 穴のサイズを設定
   plugins: {
     datalabels: {
       color: "#fff", // ラベルの文字色
@@ -144,33 +164,82 @@ const doughnutOptions = {
       formatter: (value: number, ctx: any) => {
         // データセットからラベルを取得
         let labels = ctx.chart.data.labels;
-        return labels[ctx.dataIndex] + `: ${value}`;
+        return labels[ctx.dataIndex] + `\n${value}%`;
       },
     },
   },
 };
 
-function App() {
+// タイトルと画像を横に並べるためのフレックスボックスコンポーネント
+const TitleRow = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 40px; // 適宜調整
+`;
 
+// 画像を表示するためのコンポーネント
+const Image = styled.img`
+  width: 200px; // 画像のサイズを適宜調整
+  height: auto;
+  margin-left: 20px; // タイトルとの間隔を調整
+`;
+
+const BubbleDescription = styled(Description)`
+  position: relative;
+  background-color: #f0f0f0; // 吹き出しの背景色
+  color: #333; // テキストの色
+  padding: 20px; // 内側の余白
+  border-radius: 25px; // 角を丸くする
+  margin: 20px 0;
+  font-size: 1.2em;
+
+  &:before {
+    content: "";
+    position: absolute;
+    bottom: 100%; // 吹き出しの尖った部分の位置
+    left: 50%;
+    margin-left: -10px;
+    border: 10px solid transparent;
+    border-bottom-color: #f0f0f0;
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -8px;
+    border: 8px solid transparent;
+    border-bottom-color: #fff;
+  }
+
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // 影を追加
+`;
+
+function App() {
   return (
     <Container>
-      <Title>
-        子供のための電子マネーデバイス
-        <br />
-        paycollon
-      </Title>
+      <TitleRow>
+        <Title>
+          子供のための電子マネーデバイス
+          <br />
+          paycollon
+        </Title>
+        <Image src="images/logo.png" alt="paycollonのロゴ" />{" "}
+        {/* 画像のパスと代替テキストを指定 */}
+      </TitleRow>
 
       <Subheading>背景</Subheading>
       <Row>
         <Column>
           <SSubheading>電子マネーの普及</SSubheading>
           <Description>お小遣いに電子マネーを利用したいか？</Description>
-          <Doughnut
-            style={{ width: "200px", height: "200px" }}
-            data={graph1}
-            options={doughnutOptions}
-          />
+          <DoughnutContainer>
+            <Doughnut data={graph1} options={doughnutOptions} />
+          </DoughnutContainer>
         </Column>
+
         <Column>
           <SSubheading>
             スマホを持っていない世代は
@@ -178,18 +247,18 @@ function App() {
             電子マネーを使いづらい
           </SSubheading>
           <Description>小学校低学年にスマホを持たせているか？</Description>
-          <Doughnut
-            style={{ width: "200px", height: "200px" }}
-            data={graph2}
-            options={doughnutOptions}
-          />
+          <DoughnutContainer>
+            <Doughnut data={graph2} options={doughnutOptions} />
+          </DoughnutContainer>
           <Description>スマホを使い始める年齢は平均10.6歳</Description>
         </Column>
       </Row>
 
       <SSubheading>子供が電子マネーを使う不安</SSubheading>
-      <Description>お金を使い始めるのではないか</Description>
-      <Description>お金を重みを感じられないのではないか</Description>
+      <BubbleDescription>お金を使いすぎるのではないか</BubbleDescription>
+      <BubbleDescription>
+        お金を重みを感じられないのではないか
+      </BubbleDescription>
 
       <Subheading>コンセプト</Subheading>
       <SSubheading>
