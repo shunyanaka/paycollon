@@ -179,43 +179,76 @@ const TitleRow = styled.div`
 `;
 
 // 画像を表示するためのコンポーネント
-const Image = styled.img`
+const Imagelogo = styled.img`
+  width: 200px; // 画像のサイズを適宜調整
+  height: auto;
+  margin-left: 20px; // タイトルとの間隔を調整
+`;
+
+// 画像を表示するためのコンポーネント
+const Imageproblem = styled.img`
   width: 200px; // 画像のサイズを適宜調整
   height: auto;
   margin-left: 20px; // タイトルとの間隔を調整
 `;
 
 const BubbleDescription = styled(Description)`
+  width: 500px; // 吹き出しの幅を300pxに設定
+  margin: 20px auto; // 上下のマージンは20px、左右は自動で中央揃え
   position: relative;
   background-color: #f0f0f0; // 吹き出しの背景色
   color: #333; // テキストの色
   padding: 20px; // 内側の余白
   border-radius: 25px; // 角を丸くする
-  margin: 20px 0;
   font-size: 1.2em;
 
-  &:before {
-    content: "";
-    position: absolute;
-    bottom: 100%; // 吹き出しの尖った部分の位置
-    left: 50%;
-    margin-left: -10px;
-    border: 10px solid transparent;
-    border-bottom-color: #f0f0f0;
-  }
-
+  &:before,
   &:after {
-    content: "";
-    position: absolute;
-    bottom: 100%;
-    left: 50%;
-    margin-left: -8px;
-    border: 8px solid transparent;
-    border-bottom-color: #fff;
+    content: none;
   }
-
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // 影を追加
 `;
+
+const CircleDescription = styled(Description)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px; // 円の直径
+  height: 200px;
+  margin: 100px auto 40px; // 自動で中央揃え
+  border-radius: 50%; // 円形にする
+  background-color: #f0f0f0; // 背景色
+  color: #333; // テキストの色
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // 影を追加
+  padding: 20px; // 内側の余白
+  font-size: 1.2em;
+`;
+
+const CircleDescription2 = styled(Description)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px; // 円の直径
+  height: 200px;
+  margin: 40px auto 0px; // 自動で中央揃え
+  border-radius: 50%; // 円形にする
+  background-color: #f0f0f0; // 背景色
+  color: #333; // テキストの色
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // 影を追加
+  padding: 20px; // 内側の余白
+  font-size: 1.2em;
+`;
+
+const InvertedTriangle = styled.div`
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent; // 左側の透明な境界
+  border-right: 20px solid transparent; // 右側の透明な境界
+  border-top: 40px solid #333; // 上側の色付きの境界（逆三角形の色）
+  margin: 0px auto; // 位置調整
+`;
+
+
 
 function App() {
   return (
@@ -226,7 +259,7 @@ function App() {
           <br />
           paycollon
         </Title>
-        <Image src="images/logo.png" alt="paycollonのロゴ" />{" "}
+        <Imagelogo src="images/logo.png" alt="paycollonのロゴ" />
         {/* 画像のパスと代替テキストを指定 */}
       </TitleRow>
 
@@ -274,19 +307,24 @@ function App() {
       <Row>
         <Column>
           <SSubheading>従来の電子マネー</SSubheading>
+          <Imageproblem src="images/densi.png" alt="paycollonのロゴ" />
           <SSubheading>paycollon</SSubheading>
+          <Imageproblem src="images/paycollon.png" alt="paycollonのロゴ" />
         </Column>
         <Column>
-          <Description>どこから来たの？</Description>
-          <Description>送信元のボイスメッセージ確認</Description>
+          <CircleDescription>どこから来たの？</CircleDescription>
+          <InvertedTriangle />
+          <CircleDescription2 >送信元のボイスメッセージ確認</CircleDescription2>
         </Column>
         <Column>
-          <Description>どのくらい使っていいの？</Description>
-          <Description>使う分だけを家から持ち出せる</Description>
+          <CircleDescription>どのくらい使っていいの？</CircleDescription>
+          <InvertedTriangle />
+          <CircleDescription2>使う分だけを家から持ち出せる</CircleDescription2>
         </Column>
         <Column>
-          <Description>今どのくらい入っているの？</Description>
-          <Description>振って残高確認</Description>
+          <CircleDescription>今どのくらい入っているの？</CircleDescription>
+          <InvertedTriangle />
+          <CircleDescription2>振って残高確認</CircleDescription2>
         </Column>
       </Row>
 
