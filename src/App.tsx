@@ -139,7 +139,7 @@ const doughnutOptions = {
       color: "#fff", // ラベルの文字色
       font: {
         weight: "bold" as const,
-        size: 14,
+        size: 20,
       },
       formatter: (value: number, ctx: any) => {
         // データセットからラベルを取得
@@ -151,12 +151,6 @@ const doughnutOptions = {
 };
 
 function App() {
-  const videos = [
-    { title: "素材１", src: "videos/ABC.mp4" },
-    { title: "素材２", src: "videos/DEF.mp4" },
-    { title: "素材３", src: "videos/GHI.mp4" },
-    { title: "素材４", src: "videos/JKL.mp4" },
-  ];
 
   return (
     <Container>
@@ -171,7 +165,11 @@ function App() {
         <Column>
           <SSubheading>電子マネーの普及</SSubheading>
           <Description>お小遣いに電子マネーを利用したいか？</Description>
-          <Doughnut data={graph1} options={doughnutOptions} />
+          <Doughnut
+            style={{ width: "200px", height: "200px" }}
+            data={graph1}
+            options={doughnutOptions}
+          />
         </Column>
         <Column>
           <SSubheading>
@@ -180,72 +178,153 @@ function App() {
             電子マネーを使いづらい
           </SSubheading>
           <Description>小学校低学年にスマホを持たせているか？</Description>
-          <Doughnut data={graph2} options={doughnutOptions} />
+          <Doughnut
+            style={{ width: "200px", height: "200px" }}
+            data={graph2}
+            options={doughnutOptions}
+          />
+          <Description>スマホを使い始める年齢は平均10.6歳</Description>
         </Column>
       </Row>
 
-      <Subheading>画像と音を利用したPositive Computing</Subheading>
-      <Description>
-        画像と音には明快性や活動性といった、素材の印象を表す因子があります。
-      </Description>
-      <Description>
-        それらの因子が低い素材から高い素材、つまり不快な印象の素材から快な印象の素材を順に視聴することで、
+      <SSubheading>子供が電子マネーを使う不安</SSubheading>
+      <Description>お金を使い始めるのではないか</Description>
+      <Description>お金を重みを感じられないのではないか</Description>
+
+      <Subheading>コンセプト</Subheading>
+      <SSubheading>
+        お金の使用感覚を養う
         <br />
-        その人自身の気持ちも不快から快に誘導できることを
-        <StyledLink
-          href="https://jglobal.jst.go.jp/detail?JGLOBAL_ID=202302286743234891"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          「画像と音を利用したポジティブ・コンピューティング」
-        </StyledLink>
-        という論文で示しました。
-      </Description>
-      <Description>
-        では、実際にその論文で使用した素材を視聴してみましょう。
-      </Description>
+        子供向けの電子マネー
+      </SSubheading>
 
-      {/* 各VideoWrapperを繰り返す代わりに、この部分をコンポーネント化してpropsでビデオソースを渡すことができます */}
-      {videos.map((video) => (
-        <React.Fragment key={video.title}>
-          <Subheading>{video.title}</Subheading>
-          <VideoComponent src={video.src}>
-            あなたのブラウザはビデオタグをサポートしていません。
-          </VideoComponent>
-        </React.Fragment>
-      ))}
+      <Subheading>課題</Subheading>
+      <SSubheading>
+        現金では当たり前のことが、電子マネーでは感じられない
+      </SSubheading>
+      <Row>
+        <Column>
+          <SSubheading>従来の電子マネー</SSubheading>
+          <SSubheading>paycollon</SSubheading>
+        </Column>
+        <Column>
+          <Description>どこから来たの？</Description>
+          <Description>送信元のボイスメッセージ確認</Description>
+        </Column>
+        <Column>
+          <Description>どのくらい使っていいの？</Description>
+          <Description>使う分だけを家から持ち出せる</Description>
+        </Column>
+        <Column>
+          <Description>今どのくらい入っているの？</Description>
+          <Description>振って残高確認</Description>
+        </Column>
+      </Row>
 
+      <Subheading>TARGET</Subheading>
+      <SSubheading>コアターゲットは小学生（6~12歳）</SSubheading>
       <Description>
-        いかがでしたか？気分はポジティブになったでしょうか。
-      </Description>
-      <Description>
-        現在のあなたの気分がネガティブなほど、効果があったのではないかと思います。
-      </Description>
-
-      <Subheading>最後に</Subheading>
-      <Description>
-        Positive Computingに決まった手法はありません。
+        お小遣いをもらい始めた年代
         <br />
-        人をポジティブにできれば、それはもうPositive Computingなのです。
-      </Description>
-      <Description>
-        あなたが少しでもPositive Computingに興味を持っていただけたら幸いです。
-      </Description>
-      <Description>
-        世界を少しでも楽しく、ポジティブなものにできるよう、Positive
-        Computingのさらなる発展を願っています。
+        計算を理解し始める年代
+        <br />
+        スマホを持っていない年代
+        <br />
+        （スマホを持ち始めるのは平均11歳）
       </Description>
 
-      <ContactSection>
-        <ContactHeading>お問い合わせ</ContactHeading>
-        <ContactInfo>
-          ご質問やコメントがありましたら、お気軽に下記のメールアドレスまでご連絡ください：
-          <br />
-          <a href="mailto:contact@example.com">
-            shunyanakamuraschool@gmail.com
-          </a>
-        </ContactInfo>
-      </ContactSection>
+      <Subheading>PERSONA</Subheading>
+      <SSubheading>
+        神奈川県 横須賀市在住の34歳夫婦
+        <br />
+        年収：1000万円（夫婦合わせて）
+      </SSubheading>
+      <Description>
+        価値観：子供の教育に熱心な共働き夫婦（２人とも出世している）
+        <br />
+        　　　　子供のやりたいことを応援する
+        <br />
+        家族構成：夫婦、長女（核家族）
+        <br />
+        趣味：家族でキャンプ
+        <br />
+        利用しているSNS：YouTube、Instagram、X
+        <br />
+        生活習慣：子供を塾に週１で通わせている
+        <br />
+        　　　　　頑張ったときにはお小遣いをあげている
+        <br />
+        好きなサイトやアプリ：NewsPics、日経ビジネス
+        <br />
+        　　　　　　　　　　　KIDSNA（子育て情報アプリ）
+        <br />
+        よく読む雑誌：小学１年生、kodomoe（子育て雑誌）
+        <br />
+        好きなブランド：Patagonia
+        <br />
+        よく買い物をする店：ヨドバシカメラ
+        <br />
+        消費傾向：無暗に安い物は買わない、出すときには出す
+      </Description>
+
+      <Subheading>What's paycollon ?</Subheading>
+      <Row>
+        <Column>
+          <SSubheading>子供が使用するデバイス</SSubheading>
+          <SSubheading>paycollon</SSubheading>
+        </Column>
+        <Column>
+          <SSubheading>と</SSubheading>
+        </Column>
+        <Column>
+          <SSubheading>両親や祖父母が使用するアプリ</SSubheading>
+        </Column>
+      </Row>
+
+      <Row>
+        <Column>
+          <Subheading>DESIGN POINT 1</Subheading>
+          <SSubheading>貯金から少しずつ持ち出す</SSubheading>
+        </Column>
+        <Column>
+          <SSubheading>と</SSubheading>
+        </Column>
+      </Row>
+
+      <SSubheading>少しずつ持ち出すことで使い過ぎを防止</SSubheading>
+
+      <Subheading>DESIGN POINT 2</Subheading>
+      <SSubheading>
+        どのくらい持っているか・どれくらい使ったかを体験できるUI
+      </SSubheading>
+      <Row>
+        <Column>
+          <SSubheading>決済したときの演出</SSubheading>
+        </Column>
+        <Column>
+          <SSubheading>振った時は残高を表示</SSubheading>
+        </Column>
+      </Row>
+      <Subheading>DESIGN POINT 3</Subheading>
+      <SSubheading>お小遣いを一緒に届くボイスメッセージ</SSubheading>
+
+      <Subheading>DESIGN POINT 4</Subheading>
+      <SSubheading>大切にしたくなるデバイスの形状</SSubheading>
+
+      <Description>
+        持ち運びやすいサイズ感
+        <br />
+        所有感の湧きやすいオブジェ感
+        <br />
+        金銭を象徴する石のモチーフ
+        <br />
+        電子マネーと差別化する未来的すぎない有機的な形状
+      </Description>
+
+      <Subheading>DESIGN POINT 5</Subheading>
+      <SSubheading>親も安心できる送金以外のアプリの機能</SSubheading>
+
+      <Subheading>STORY MOVIE</Subheading>
     </Container>
   );
 }
