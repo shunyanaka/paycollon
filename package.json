@@ -25,7 +25,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "yarn build && gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -47,5 +48,6 @@
   },
   "devDependencies": {
     "@types/react-scroll": "^1.8.10"
-  }
+  },
+  "homepage": "https://shunyanaka.github.io/paycollon/"
 }
