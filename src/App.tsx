@@ -15,7 +15,13 @@ const Container = styled.div`
 `;
 
 const Title = styled.h1`
-  font-size: 3em; // タイトルのフォントサイズを大きく
+  font-size: 3.5em; // タイトルのフォントサイズを大きく
+  color: #333; // ダークグレイの色
+  margin: 40px 0;
+`;
+
+const SubTitle = styled.h1`
+  font-size: 2.7em; // タイトルのフォントサイズを大きく
   color: #333; // ダークグレイの色
   margin: 40px 0;
 `;
@@ -30,6 +36,12 @@ const SSubheading = styled.h2`
   color: #333; // ここで色をダークグレイに設定
   margin: 100px 0 10px; // 上下のマージンを適宜調整
   font-size: 1.6em; // 小見出しのフォントサイズ
+`;
+
+const Text = styled.h2`
+  color: #333; // ここで色をダークグレイに設定
+  margin: 300px 0 10px; // 上下のマージンを適宜調整
+  font-size: 2em; // 小見出しのフォントサイズ
 `;
 
 const Description = styled.p`
@@ -50,54 +62,13 @@ const Video = styled.video`
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // ビデオに影を付ける
 `;
 
-const ContactSection = styled.section`
-  margin-top: 300px;
+const VideoV = styled.video`
+  width: 90%;
+  max-width: 1000px; // ビデオの最大幅を大きく
+  margin-top: 20px;
+  border-radius: 10px; // ビデオの角を丸く
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // ビデオに影を付ける
 `;
-
-const ContactHeading = styled.h2`
-  font-size: 2em;
-  color: #333;
-  margin-bottom: 20px;
-`;
-
-const ContactInfo = styled.p`
-  color: #666;
-  margin-bottom: 300px;
-  font-size: 1.2em;
-  a {
-    color: #0066cc;
-    text-decoration: none;
-  }
-  a:hover {
-    text-decoration: underline;
-  }
-`;
-
-const StyledLink = styled.a`
-  color: #1a0dab; // リンクの色
-  text-decoration: none; // 下線を消す
-
-  &:hover {
-    text-decoration: underline; // ホバー時に下線を表示
-  }
-`;
-
-const Videostory = ({
-  src,
-  children,
-}: {
-  src: string;
-  children?: ReactNode;
-}) => (
-  <Element name="videoElement">
-    <VideoWrapper>
-      <Video controls>
-        <source src={src} type="video/mp4" />
-        {children}
-      </Video>
-    </VideoWrapper>
-  </Element>
-);
 
 const VideoComponent = ({
   src,
@@ -116,6 +87,24 @@ const VideoComponent = ({
   </Element>
 );
 
+
+const VideoVoice = ({
+  src,
+  children,
+}: {
+  src: string;
+  children?: ReactNode;
+}) => (
+  <Element name="videoElement">
+    <VideoWrapper>
+      <VideoV autoPlay loop>
+        <source src={src} type="video/mp4" />
+        {children}
+      </VideoV>
+    </VideoWrapper>
+  </Element>
+);
+
 const Row = styled.div`
   display: flex;
   justify-content: space-between;
@@ -125,6 +114,11 @@ const Row = styled.div`
 const Column = styled.div`
   flex: 1;
   margin: 0 20px;
+`;
+
+const TitleColumn = styled.div`
+flex: 1; // フレックス項目の伸縮率を1に設定
+text-align: center; // テキストを中央揃え
 `;
 
 const NarrowColumn = styled(Column)`
@@ -175,6 +169,12 @@ const DoughnutContainer = styled.div`
   margin: auto; // 中央揃えにする場合
 `;
 
+const DoughnutContainer2 = styled.div`
+  width: 450px; // ここで円グラフのサイズを調整
+  height: 450px;
+  margin: auto; // 中央揃えにする場合
+`;
+
 const doughnutOptions = {
   cutout: 0, // 穴のサイズを設定
   plugins: {
@@ -187,7 +187,25 @@ const doughnutOptions = {
       formatter: (value: number, ctx: any) => {
         // データセットからラベルを取得
         let labels = ctx.chart.data.labels;
-        return labels[ctx.dataIndex] + `\n${value}%`;
+        return labels[ctx.dataIndex] + `\n     ${value}%`;
+      },
+    },
+  },
+};
+
+const doughnutOptions2 = {
+  cutout: 0, // 穴のサイズを設定
+  plugins: {
+    datalabels: {
+      color: "#fff", // ラベルの文字色
+      font: {
+        weight: "bold" as const,
+        size: 20,
+      },
+      formatter: (value: number, ctx: any) => {
+        // データセットからラベルを取得
+        let labels = ctx.chart.data.labels;
+        return labels[ctx.dataIndex] + `\n     ${value}%`;
       },
     },
   },
@@ -197,56 +215,94 @@ const doughnutOptions = {
 const TitleRow = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
-  margin-bottom: 40px; // 適宜調整
-`;
-
-const TextColumn = styled.div`
-  flex: 1;
-  text-align: left; // テキストを左揃えにする
+  margin: 250px 50px 200px; // 適宜調整
 `;
 
 // 画像を表示するためのコンポーネント
 const Imagelogo = styled.img`
-  width: 200px; // 画像のサイズを適宜調整
+  width: 400px; // 画像のサイズを適宜調整
   height: auto;
-  margin-left: 20px; // タイトルとの間隔を調整
+`;
+
+const Imagephone = styled.img`
+  width: 250px; // 画像のサイズを適宜調整
+  height: auto;
 `;
 
 // 画像を表示するためのコンポーネント
 const Imageproblem = styled.img`
-  width: 200px; // 画像のサイズを適宜調整
+  width: 250px; // 画像のサイズを適宜調整
   height: auto;
   margin-left: 20px; // タイトルとの間隔を調整
 `;
 
 const Imagehuman = styled.img`
+  width: 250px; // 画像のサイズを適宜調整
+  height: auto;
+  margin: 300px 0 0px; // タイトルとの間隔を調整
+`;
+
+const Imagefamily = styled.img`
   width: 300px; // 画像のサイズを適宜調整
   height: auto;
-  margin-left: 20px; // タイトルとの間隔を調整
+  margin: 0px 0 0px; // タイトルとの間隔を調整
 `;
 
 const Imagepaycollon = styled.img`
-  width: 400px; // 画像のサイズを適宜調整
+  width: 450px; // 画像のサイズを適宜調整
   height: auto;
   margin: 60px auto 30px; // タイトルとの間隔を調整
 `;
 
 const Imagepaycollonirasuto = styled.img`
-  width: 600px; // 画像のサイズを適宜調整
+  width: 500px; // 画像のサイズを適宜調整
   height: auto;
-  margin: 60px auto 30px; // タイトルとの間隔を調整
+  margin: 300px auto 30px; // タイトルとの間隔を調整
 `;
 
 const BubbleDescription = styled(Description)`
-  width: 500px; // 吹き出しの幅を300pxに設定
-  margin: 20px auto; // 上下のマージンは20px、左右は自動で中央揃え
+  width: 700px; // 吹き出しの幅を300pxに設定
+  margin: 40px auto; // 上下のマージンは20px、左右は自動で中央揃え
   position: relative;
   background-color: #f0f0f0; // 吹き出しの背景色
   color: #333; // テキストの色
   padding: 20px; // 内側の余白
   border-radius: 25px; // 角を丸くする
-  font-size: 1.2em;
+  font-size: 2.0em;
+
+  &:before,
+  &:after {
+    content: none;
+  }
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // 影を追加
+`;
+
+const Bubble = styled(Description)`
+  width: 500px; // 吹き出しの幅を300pxに設定
+  margin: 200px auto 20px; // 上下のマージンは20px、左右は自動で中央揃え
+  position: relative;
+  background-color: #f0f0f0; // 吹き出しの背景色
+  color: #333; // テキストの色
+  padding: 20px; // 内側の余白
+  border-radius: 25px; // 角を丸くする
+  font-size: 1.3em;
+
+  &:before,
+  &:after {
+    content: none;
+  }
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // 影を追加
+`;
+
+const Bubble2 = styled(Description)`
+  width: 500px; // 吹き出しの幅を300pxに設定
+  margin: 10px auto 20px; // 上下のマージンは20px、左右は自動で中央揃え
+  position: relative;
+  background-color: #f0f0f0; // 吹き出しの背景色
+  color: #333; // テキストの色
+  padding: 20px; // 内側の余白
+  border-radius: 25px; // 角を丸くする
+  font-size: 1.3em;
 
   &:before,
   &:after {
@@ -259,30 +315,30 @@ const CircleDescription = styled(Description)`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 200px; // 円の直径
-  height: 200px;
+  width: 250px; // 円の直径
+  height: 250px;
   margin: 100px auto 40px; // 自動で中央揃え
   border-radius: 50%; // 円形にする
   background-color: #f0f0f0; // 背景色
   color: #333; // テキストの色
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // 影を追加
   padding: 20px; // 内側の余白
-  font-size: 1.2em;
+  font-size: 1.5em;
 `;
 
 const CircleDescription2 = styled(Description)`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 200px; // 円の直径
-  height: 200px;
+  width: 250px; // 円の直径
+  height: 250px;
   margin: 40px auto 0px; // 自動で中央揃え
   border-radius: 50%; // 円形にする
   background-color: #f0f0f0; // 背景色
   color: #333; // テキストの色
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // 影を追加
   padding: 20px; // 内側の余白
-  font-size: 1.2em;
+  font-size: 1.5em;
 `;
 
 const InvertedTriangle = styled.div`
@@ -294,24 +350,51 @@ const InvertedTriangle = styled.div`
   margin: 0px auto; // 位置調整
 `;
 
+// 吹き出しのスタイル
+const SpeechBubble = styled.div`
+  position: absolute;
+  top: 10px; // 位置を調整
+  left: 10px; // 位置を調整
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 200px;
+  &:before {
+    content: "";
+    position: absolute;
+    bottom: -20px; // 吹き出しの三角部分の位置を調整
+    left: 50%;
+    border-width: 10px;
+    border-style: solid;
+    border-color: #f0f0f0 transparent transparent transparent;
+  }
+`;
+
+// 吹き出し内のテキスト
+const SpeechText = styled.p`
+  font-size: 1em;
+  color: #333;
+`;
+
 function App() {
   return (
     <Container>
       <TitleRow>
-        <Title>
-          子供のための電子マネーデバイス
-          <br />
-          paycollon
-        </Title>
-        <Imagelogo src="images/logo.png" alt="paycollonのロゴ" />
-        {/* 画像のパスと代替テキストを指定 */}
+        <TitleColumn>
+          <SubTitle>子供のための電子マネーデバイス</SubTitle>
+          <Title>paycollon</Title>
+        </TitleColumn>
+        <TitleColumn>
+          <Imagelogo src="images/logo.png" alt="paycollonのロゴ" />
+        </TitleColumn>
       </TitleRow>
 
-      <Subheading>背景</Subheading>
+      <Text>BACKGROUND</Text>
       <Row>
         <Column>
           <SSubheading>電子マネーの普及</SSubheading>
-          <Description>お小遣いに電子マネーを利用したいか？</Description>
+          <SSubheading>お小遣いに電子マネーを利用したいか？</SSubheading>
           <DoughnutContainer>
             <Doughnut data={graph1} options={doughnutOptions} />
           </DoughnutContainer>
@@ -323,31 +406,30 @@ function App() {
             <br />
             電子マネーを使いづらい
           </SSubheading>
-          <Description>小学校低学年にスマホを持たせているか？</Description>
-          <DoughnutContainer>
-            <Doughnut data={graph2} options={doughnutOptions} />
-          </DoughnutContainer>
-          <Description>スマホを使い始める年齢は平均10.6歳</Description>
+          <SSubheading>小学校低学年にスマホを持たせているか？</SSubheading>
+          <DoughnutContainer2>
+            <Doughnut data={graph2} options={doughnutOptions2} />
+          </DoughnutContainer2>
+          <SSubheading>スマホを使い始める年齢は平均10.6歳</SSubheading>
         </Column>
       </Row>
 
-      <SSubheading>子供が電子マネーを使う不安</SSubheading>
+      <Text>子供が電子マネーを使う不安</Text>
       <BubbleDescription>お金を使いすぎるのではないか</BubbleDescription>
       <BubbleDescription>
         お金を重みを感じられないのではないか
       </BubbleDescription>
 
-      <Subheading>コンセプト</Subheading>
+      <Text>CONCEPT</Text>
       <SSubheading>
-        お金の使用感覚を養う
-        <br />
-        子供向けの電子マネー
+        お金の使用感覚を養う子供向けの電子マネー
       </SSubheading>
 
-      <Subheading>課題</Subheading>
+      <Text>PROBLEM</Text>
       <SSubheading>
         現金では当たり前のことが、電子マネーでは感じられない
       </SSubheading>
+
       <Row>
         <Column>
           <SSubheading>従来の電子マネー</SSubheading>
@@ -358,47 +440,54 @@ function App() {
         <Column>
           <CircleDescription>どこから来たの？</CircleDescription>
           <InvertedTriangle />
-          <CircleDescription2>送信元のボイスメッセージ確認</CircleDescription2>
+          <CircleDescription2>送信元の<br />ボイスメッセージ<br />確認</CircleDescription2>
         </Column>
         <Column>
-          <CircleDescription>どのくらい使っていいの？</CircleDescription>
+          <CircleDescription>どのくらい<br />使っていいの？</CircleDescription>
           <InvertedTriangle />
-          <CircleDescription2>使う分だけを家から持ち出せる</CircleDescription2>
+          <CircleDescription2>使う分だけを<br />家から持ち出せる</CircleDescription2>
         </Column>
         <Column>
-          <CircleDescription>今どのくらい入っているの？</CircleDescription>
+          <CircleDescription>今どのくらい<br />入っているの？</CircleDescription>
           <InvertedTriangle />
-          <CircleDescription2>振って残高確認</CircleDescription2>
+          <CircleDescription2>振って<br />残高確認</CircleDescription2>
         </Column>
       </Row>
 
       <Row>
         <Column>
-          <Subheading>TARGET</Subheading>
+          <Text>TARGET</Text>
           <SSubheading>コアターゲットは小学生（6~12歳）</SSubheading>
-          <Description>
+          <SSubheading>
             お小遣いをもらい始めた年代
             <br />
             計算を理解し始める年代
             <br />
             スマホを持っていない年代
-            <br />
-            （スマホを持ち始めるのは平均11歳）
-          </Description>
+          </SSubheading>
         </Column>
         <Column>
           <Imagehuman src="images/human.png" alt="paycollonのロゴ" />
         </Column>
       </Row>
 
-      <Subheading>PERSONA</Subheading>
-      <SSubheading>
-        神奈川県 横須賀市在住の34歳夫婦
-        <br />
-        年収：1000万円（夫婦合わせて）
-      </SSubheading>
+      <Row>
+        <Column>
+        <Bubble>キャッシュレス決済って便利だし、<br />今の内から慣れて欲しいなぁ</Bubble>
+        <Bubble2>でも、電子マネーだとお金の重みが<br />感じられなくなるのかな…</Bubble2>
+          <Imagefamily src="images/family.png" alt="paycollonのロゴ" />
+        </Column>
+        <Column>
+          <Text>PERSONA</Text>
+          <SSubheading>
+            神奈川県 横須賀市在住の34歳夫婦
+            <br />
+            年収：1000万円（夫婦合わせて）
+          </SSubheading>
+        </Column>
+      </Row>
 
-      <Subheading>What's paycollon ?</Subheading>
+      <Text>What's paycollon ?</Text>
       <Row>
         <Column>
           <Imagepaycollon src="images/base.png" alt="paycollonのロゴ" />
@@ -417,7 +506,7 @@ function App() {
 
       <Row>
         <Column>
-          <Subheading>DESIGN POINT 1</Subheading>
+          <Text>DESIGN POINT 1</Text>
           <SSubheading>貯金から少しずつ持ち出す</SSubheading>
         </Column>
         <Column>
@@ -431,7 +520,7 @@ function App() {
       <SSubheading>少しずつ持ち出すことで使い過ぎを防止</SSubheading>
       <VideoComponent src="videos/rotate.mp4" />
 
-      <Subheading>DESIGN POINT 2</Subheading>
+      <Text>DESIGN POINT 2</Text>
       <SSubheading>
         どのくらい持っているか・どれくらい使ったかを体験できるUI
       </SSubheading>
@@ -445,24 +534,22 @@ function App() {
           <SSubheading>振った時は残高を表示</SSubheading>
         </Column>
       </Row>
-      <Subheading>DESIGN POINT 3</Subheading>
+      <Text>DESIGN POINT 3</Text>
       <SSubheading>お小遣いを一緒に届くボイスメッセージ</SSubheading>
-      <VideoComponent src="videos/voice.mp4" />
+      <VideoVoice src="videos/voice.mp4" />
 
       <Row>
         <Column>
-          <Subheading>DESIGN POINT 4</Subheading>
+          <Text>DESIGN POINT 4</Text>
           <SSubheading>大切にしたくなるデバイスの形状</SSubheading>
 
-          <Description>
+          <SSubheading>
             持ち運びやすいサイズ感
             <br />
             所有感の湧きやすいオブジェ感
             <br />
             金銭を象徴する石のモチーフ
-            <br />
-            電子マネーと差別化する未来的すぎない有機的な形状
-          </Description>
+          </SSubheading>
         </Column>
         <Column>
           <Imagepaycollonirasuto
@@ -472,23 +559,23 @@ function App() {
         </Column>
       </Row>
 
-      <Subheading>DESIGN POINT 5</Subheading>
+      <Text>DESIGN POINT 5</Text>
       <SSubheading>親も安心できる送金以外のアプリの機能</SSubheading>
       <Row>
         <Column>
-          <Imagelogo src="images/search.png" alt="paycollonのロゴ" />
+          <Imagephone src="images/search.png" alt="paycollonのロゴ" />
           <SSubheading>探す</SSubheading>
         </Column>
         <Column>
-          <Imagelogo src="images/history.png" alt="paycollonのロゴ" />
+          <Imagephone src="images/history.png" alt="paycollonのロゴ" />
           <SSubheading>履歴</SSubheading>
         </Column>
         <Column>
-          <Imagelogo src="images/learn.png" alt="paycollonのロゴ" />
+          <Imagephone src="images/learn.png" alt="paycollonのロゴ" />
           <SSubheading>学ぶ</SSubheading>
         </Column>
         <Column>
-          <Imagelogo src="images/home.png" alt="paycollonのロゴ" />
+          <Imagephone src="images/home.png" alt="paycollonのロゴ" />
           <SSubheading>ホーム</SSubheading>
         </Column>
       </Row>
