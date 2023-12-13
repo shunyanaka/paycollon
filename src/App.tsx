@@ -110,6 +110,12 @@ const Column = styled.div`
   margin: 0 20px;
 `;
 
+const NarrowColumn = styled(Column)`
+  flex: 0 1 auto; // フレックス項目の成長と縮小を制御
+  width: 100px; // 列の幅を100ピクセルに設定（適宜調整）
+  margin: 40px 20px; // 左右のマージンを保持
+`;
+
 // 円グラフのデータとオプションを設定
 const graph1 = {
   labels: [
@@ -178,6 +184,11 @@ const TitleRow = styled.div`
   margin-bottom: 40px; // 適宜調整
 `;
 
+const TextColumn = styled.div`
+  flex: 1;
+  text-align: left; // テキストを左揃えにする
+`;
+
 // 画像を表示するためのコンポーネント
 const Imagelogo = styled.img`
   width: 200px; // 画像のサイズを適宜調整
@@ -190,6 +201,18 @@ const Imageproblem = styled.img`
   width: 200px; // 画像のサイズを適宜調整
   height: auto;
   margin-left: 20px; // タイトルとの間隔を調整
+`;
+
+const Imagehuman = styled.img`
+  width: 300px; // 画像のサイズを適宜調整
+  height: auto;
+  margin-left: 20px; // タイトルとの間隔を調整
+`;
+
+const Imagepaycollon = styled.img`
+  width: 400px; // 画像のサイズを適宜調整
+  height: auto;
+  margin: 60px auto 30px; // タイトルとの間隔を調整
 `;
 
 const BubbleDescription = styled(Description)`
@@ -247,8 +270,6 @@ const InvertedTriangle = styled.div`
   border-top: 40px solid #333; // 上側の色付きの境界（逆三角形の色）
   margin: 0px auto; // 位置調整
 `;
-
-
 
 function App() {
   return (
@@ -314,7 +335,7 @@ function App() {
         <Column>
           <CircleDescription>どこから来たの？</CircleDescription>
           <InvertedTriangle />
-          <CircleDescription2 >送信元のボイスメッセージ確認</CircleDescription2>
+          <CircleDescription2>送信元のボイスメッセージ確認</CircleDescription2>
         </Column>
         <Column>
           <CircleDescription>どのくらい使っていいの？</CircleDescription>
@@ -328,17 +349,24 @@ function App() {
         </Column>
       </Row>
 
-      <Subheading>TARGET</Subheading>
-      <SSubheading>コアターゲットは小学生（6~12歳）</SSubheading>
-      <Description>
-        お小遣いをもらい始めた年代
-        <br />
-        計算を理解し始める年代
-        <br />
-        スマホを持っていない年代
-        <br />
-        （スマホを持ち始めるのは平均11歳）
-      </Description>
+      <Row>
+        <Column>
+          <Subheading>TARGET</Subheading>
+          <SSubheading>コアターゲットは小学生（6~12歳）</SSubheading>
+          <Description>
+            お小遣いをもらい始めた年代
+            <br />
+            計算を理解し始める年代
+            <br />
+            スマホを持っていない年代
+            <br />
+            （スマホを持ち始めるのは平均11歳）
+          </Description>
+        </Column>
+        <Column>
+        <Imagehuman src="images/human.png" alt="paycollonのロゴ" />
+        </Column>
+      </Row>
 
       <Subheading>PERSONA</Subheading>
       <SSubheading>
@@ -377,13 +405,16 @@ function App() {
       <Subheading>What's paycollon ?</Subheading>
       <Row>
         <Column>
+        <Imagepaycollon src="images/base.png" alt="paycollonのロゴ" />
           <SSubheading>子供が使用するデバイス</SSubheading>
-          <SSubheading>paycollon</SSubheading>
         </Column>
+        
+        <NarrowColumn>
+          <SSubheading>&</SSubheading>
+        </NarrowColumn>
+
         <Column>
-          <SSubheading>と</SSubheading>
-        </Column>
-        <Column>
+        <Imageproblem src="images/phone.png" alt="paycollonのロゴ" />
           <SSubheading>両親や祖父母が使用するアプリ</SSubheading>
         </Column>
       </Row>
