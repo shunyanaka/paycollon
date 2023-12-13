@@ -108,7 +108,7 @@ const VideoComponent = ({
 }) => (
   <Element name="videoElement">
     <VideoWrapper>
-      <Video autoPlay loop controls>
+      <Video autoPlay loop>
         <source src={src} type="video/mp4" />
         {children}
       </Video>
@@ -454,7 +454,8 @@ function App() {
       </Row>
 
       <SSubheading>少しずつ持ち出すことで使い過ぎを防止</SSubheading>
-      <VideoComponent src="videos/paycollon.mp4" />
+      <VideoComponent src="videos/rotate.mp4" />
+   
 
 
       <Subheading>DESIGN POINT 2</Subheading>
@@ -463,14 +464,17 @@ function App() {
       </SSubheading>
       <Row>
         <Column>
+        <VideoComponent src="videos/delite.mp4" />
           <SSubheading>決済したときの演出</SSubheading>
         </Column>
         <Column>
+        <VideoComponent src="videos/shake.mp4" />
           <SSubheading>振った時は残高を表示</SSubheading>
         </Column>
       </Row>
       <Subheading>DESIGN POINT 3</Subheading>
       <SSubheading>お小遣いを一緒に届くボイスメッセージ</SSubheading>
+      <VideoComponent src="videos/voice.mp4" />
 
       <Subheading>DESIGN POINT 4</Subheading>
       <SSubheading>大切にしたくなるデバイスの形状</SSubheading>
