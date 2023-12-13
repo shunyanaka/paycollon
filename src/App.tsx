@@ -82,7 +82,7 @@ const StyledLink = styled.a`
   }
 `;
 
-const VideoComponent = ({
+const Videostory = ({
   src,
   children,
 }: {
@@ -98,6 +98,24 @@ const VideoComponent = ({
     </VideoWrapper>
   </Element>
 );
+
+const VideoComponent = ({
+  src,
+  children,
+}: {
+  src: string;
+  children?: ReactNode;
+}) => (
+  <Element name="videoElement">
+    <VideoWrapper>
+      <Video autoPlay loop controls>
+        <source src={src} type="video/mp4" />
+        {children}
+      </Video>
+    </VideoWrapper>
+  </Element>
+);
+
 
 const Row = styled.div`
   display: flex;
@@ -211,6 +229,12 @@ const Imagehuman = styled.img`
 
 const Imagepaycollon = styled.img`
   width: 400px; // 画像のサイズを適宜調整
+  height: auto;
+  margin: 60px auto 30px; // タイトルとの間隔を調整
+`;
+
+const Imagepaycollonirasuto = styled.img`
+  width: 600px; // 画像のサイズを適宜調整
   height: auto;
   margin: 60px auto 30px; // タイトルとの間隔を調整
 `;
@@ -364,7 +388,7 @@ function App() {
           </Description>
         </Column>
         <Column>
-        <Imagehuman src="images/human.png" alt="paycollonのロゴ" />
+          <Imagehuman src="images/human.png" alt="paycollonのロゴ" />
         </Column>
       </Row>
 
@@ -405,16 +429,16 @@ function App() {
       <Subheading>What's paycollon ?</Subheading>
       <Row>
         <Column>
-        <Imagepaycollon src="images/base.png" alt="paycollonのロゴ" />
+          <Imagepaycollon src="images/base.png" alt="paycollonのロゴ" />
           <SSubheading>子供が使用するデバイス</SSubheading>
         </Column>
-        
+
         <NarrowColumn>
           <SSubheading>&</SSubheading>
         </NarrowColumn>
 
         <Column>
-        <Imageproblem src="images/phone.png" alt="paycollonのロゴ" />
+          <Imageproblem src="images/phone.png" alt="paycollonのロゴ" />
           <SSubheading>両親や祖父母が使用するアプリ</SSubheading>
         </Column>
       </Row>
@@ -425,11 +449,13 @@ function App() {
           <SSubheading>貯金から少しずつ持ち出す</SSubheading>
         </Column>
         <Column>
-          <SSubheading>と</SSubheading>
+          <Imagepaycollonirasuto src="images/paycollonirasuto.png" alt="paycollonのロゴ" />
         </Column>
       </Row>
 
       <SSubheading>少しずつ持ち出すことで使い過ぎを防止</SSubheading>
+      <VideoComponent src="videos/paycollon.mp4" />
+
 
       <Subheading>DESIGN POINT 2</Subheading>
       <SSubheading>
@@ -462,7 +488,6 @@ function App() {
       <Subheading>DESIGN POINT 5</Subheading>
       <SSubheading>親も安心できる送金以外のアプリの機能</SSubheading>
 
-      <Subheading>STORY MOVIE</Subheading>
     </Container>
   );
 }
