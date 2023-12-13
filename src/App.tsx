@@ -116,7 +116,6 @@ const VideoComponent = ({
   </Element>
 );
 
-
 const Row = styled.div`
   display: flex;
   justify-content: space-between;
@@ -398,33 +397,6 @@ function App() {
         <br />
         年収：1000万円（夫婦合わせて）
       </SSubheading>
-      <Description>
-        価値観：子供の教育に熱心な共働き夫婦（２人とも出世している）
-        <br />
-        　　　　子供のやりたいことを応援する
-        <br />
-        家族構成：夫婦、長女（核家族）
-        <br />
-        趣味：家族でキャンプ
-        <br />
-        利用しているSNS：YouTube、Instagram、X
-        <br />
-        生活習慣：子供を塾に週１で通わせている
-        <br />
-        　　　　　頑張ったときにはお小遣いをあげている
-        <br />
-        好きなサイトやアプリ：NewsPics、日経ビジネス
-        <br />
-        　　　　　　　　　　　KIDSNA（子育て情報アプリ）
-        <br />
-        よく読む雑誌：小学１年生、kodomoe（子育て雑誌）
-        <br />
-        好きなブランド：Patagonia
-        <br />
-        よく買い物をする店：ヨドバシカメラ
-        <br />
-        消費傾向：無暗に安い物は買わない、出すときには出す
-      </Description>
 
       <Subheading>What's paycollon ?</Subheading>
       <Row>
@@ -449,14 +421,15 @@ function App() {
           <SSubheading>貯金から少しずつ持ち出す</SSubheading>
         </Column>
         <Column>
-          <Imagepaycollonirasuto src="images/paycollonirasuto.png" alt="paycollonのロゴ" />
+          <Imagepaycollonirasuto
+            src="images/paycollonirasuto.png"
+            alt="paycollonのロゴ"
+          />
         </Column>
       </Row>
 
       <SSubheading>少しずつ持ち出すことで使い過ぎを防止</SSubheading>
       <VideoComponent src="videos/rotate.mp4" />
-   
-
 
       <Subheading>DESIGN POINT 2</Subheading>
       <SSubheading>
@@ -464,11 +437,11 @@ function App() {
       </SSubheading>
       <Row>
         <Column>
-        <VideoComponent src="videos/delite.mp4" />
+          <VideoComponent src="videos/delite.mp4" />
           <SSubheading>決済したときの演出</SSubheading>
         </Column>
         <Column>
-        <VideoComponent src="videos/shake.mp4" />
+          <VideoComponent src="videos/shake.mp4" />
           <SSubheading>振った時は残高を表示</SSubheading>
         </Column>
       </Row>
@@ -476,22 +449,49 @@ function App() {
       <SSubheading>お小遣いを一緒に届くボイスメッセージ</SSubheading>
       <VideoComponent src="videos/voice.mp4" />
 
-      <Subheading>DESIGN POINT 4</Subheading>
-      <SSubheading>大切にしたくなるデバイスの形状</SSubheading>
+      <Row>
+        <Column>
+          <Subheading>DESIGN POINT 4</Subheading>
+          <SSubheading>大切にしたくなるデバイスの形状</SSubheading>
 
-      <Description>
-        持ち運びやすいサイズ感
-        <br />
-        所有感の湧きやすいオブジェ感
-        <br />
-        金銭を象徴する石のモチーフ
-        <br />
-        電子マネーと差別化する未来的すぎない有機的な形状
-      </Description>
+          <Description>
+            持ち運びやすいサイズ感
+            <br />
+            所有感の湧きやすいオブジェ感
+            <br />
+            金銭を象徴する石のモチーフ
+            <br />
+            電子マネーと差別化する未来的すぎない有機的な形状
+          </Description>
+        </Column>
+        <Column>
+          <Imagepaycollonirasuto
+            src="images/collondemo.png"
+            alt="paycollonのロゴ"
+          />
+        </Column>
+      </Row>
 
       <Subheading>DESIGN POINT 5</Subheading>
       <SSubheading>親も安心できる送金以外のアプリの機能</SSubheading>
-
+      <Row>
+        <Column>
+          <Imagelogo src="images/search.png" alt="paycollonのロゴ" />
+          <SSubheading>探す</SSubheading>
+        </Column>
+        <Column>
+          <Imagelogo src="images/history.png" alt="paycollonのロゴ" />
+          <SSubheading>履歴</SSubheading>
+        </Column>
+        <Column>
+          <Imagelogo src="images/learn.png" alt="paycollonのロゴ" />
+          <SSubheading>学ぶ</SSubheading>
+        </Column>
+        <Column>
+          <Imagelogo src="images/home.png" alt="paycollonのロゴ" />
+          <SSubheading>ホーム</SSubheading>
+        </Column>
+      </Row>
     </Container>
   );
 }
