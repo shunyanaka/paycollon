@@ -9,7 +9,7 @@ Chart.register(ArcElement, ChartDataLabels);
 
 const Container = styled.div`
   text-align: center;
-  background-color: #f8f8f8; // ライトグレイの背景色
+  background-color: #E7E6E6; // ライトグレイの背景色
   min-height: 100vh;
   padding: 20px;
 `;
@@ -37,13 +37,55 @@ const SSubheading = styled.h2`
   margin: 100px 0 10px; // 上下のマージンを適宜調整
   font-size: 1.6em; // 小見出しのフォントサイズ
 `;
+
 const Textproblem = styled.h2`
   color: #333; // ここで色をダークグレイに設定
   margin: 100px 0 10px; // 上下のマージンを適宜調整
   font-size: 1.5em; // 小見出しのフォントサイズ
 `;
 
+const Textproblemcollon = styled.h2`
+  color: #30C986; // ここで色をダークグレイに設定
+  margin: 100px 0 10px; // 上下のマージンを適宜調整
+  font-size: 1.5em; // 小見出しのフォントサイズ
+`;
+
+const Graphtext = styled.h2`
+  color: #f0f0f0; // ここで色をダークグレイに設定
+  margin: 100px 0 10px; // 上下のマージンを適宜調整
+  font-size: 1.6em; // 小見出しのフォントサイズ
+  
+`;
+
+const Highlight = styled.span`
+  background-color: #30C986;
+`;
+
 const Text = styled.h2`
+  color: #30C986; // ここで色をダークグレイに設定
+  margin: 300px 0 10px; // 上下のマージンを適宜調整
+  font-size: 2em; // 小見出しのフォントサイズ
+`;
+
+const Desginp = styled.h2`
+  color: #333; // ここで色をダークグレイに設定
+  margin: 300px 0 10px; // 上下のマージンを適宜調整
+  font-size: 1.7em; // 小見出しのフォントサイズ
+`;
+
+const Desgint = styled.h2`
+  color: #30C986; // ここで色をダークグレイに設定
+  margin: 100px 0 10px; // 上下のマージンを適宜調整
+  font-size: 2em; // 小見出しのフォントサイズ
+`;
+
+const Desgint2 = styled.h2`
+  color: #30C986; // ここで色をダークグレイに設定
+  margin: 100px 0 10px; // 上下のマージンを適宜調整
+  font-size: 1.9em; // 小見出しのフォントサイズ
+`;
+
+const Huan = styled.h2`
   color: #333; // ここで色をダークグレイに設定
   margin: 300px 0 10px; // 上下のマージンを適宜調整
   font-size: 2em; // 小見出しのフォントサイズ
@@ -53,6 +95,13 @@ const Description = styled.p`
   color: #666; // ミディアムグレイの色
   margin: 20px 0;
   font-size: 1.2em;
+`;
+
+const Supplement = styled.p`
+  color: #666; // ミディアムグレイの色
+  margin: 15px 0;
+  font-size: 0.8em;
+  text-align: left; // 左揃えに設定
 `;
 
 const VideoWrapper = styled.div`
@@ -267,20 +316,27 @@ const Imageproto = styled.img`
 `;
 
 const Imagepaycollonirasuto = styled.img`
-  width: 500px; // 画像のサイズを適宜調整
+  width: 480px; // 画像のサイズを適宜調整
   height: auto;
   margin: 300px auto 30px; // タイトルとの間隔を調整
+`;
+
+const Imagedevice = styled.img`
+  width: 450px; // 画像のサイズを適宜調整
+  height: auto;
+  margin: 300px 0 30px; // タイトルとの間隔を調整
 `;
 
 const BubbleDescription = styled(Description)`
   width: 700px; // 吹き出しの幅を300pxに設定
   margin: 40px auto; // 上下のマージンは20px、左右は自動で中央揃え
   position: relative;
-  background-color: #f0f0f0; // 吹き出しの背景色
-  color: #333; // テキストの色
+  background-color: #30C986; // 吹き出しの背景色
+  color: #f0f0f0; // テキストの色
   padding: 20px; // 内側の余白
   border-radius: 25px; // 角を丸くする
   font-size: 1.7em;
+  font-weight: bold;
 
   &:before,
   &:after {
@@ -298,7 +354,7 @@ const Bubble = styled(Description)`
   padding: 20px; // 内側の余白
   border-radius: 25px; // 角を丸くする
   font-size: 1.3em;
-
+  
   &:before,
   &:after {
     content: none;
@@ -331,11 +387,12 @@ const CircleDescription = styled(Description)`
   height: 190px;
   margin: 100px auto 40px; // 自動で中央揃え
   border-radius: 50%; // 円形にする
-  background-color: #f0f0f0; // 背景色
-  color: #333; // テキストの色
+  background-color: #30C986; // 背景色
+  color: #f0f0f0; // テキストの色
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // 影を追加
   padding: 20px; // 内側の余白
   font-size: 1.4em;
+  font-weight: bold; // フォントを太くする
 `;
 
 const CircleDescription2 = styled(Description)`
@@ -346,11 +403,12 @@ const CircleDescription2 = styled(Description)`
   height: 190px;
   margin: 40px auto 0px; // 自動で中央揃え
   border-radius: 50%; // 円形にする
-  background-color: #f0f0f0; // 背景色
-  color: #333; // テキストの色
+  background-color: #30C986; // 背景色
+  color: #f0f0f0; // テキストの色
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // 影を追加
   padding: 20px; // 内側の余白
   font-size: 1.4em;
+  font-weight: bold; // フォントを太くする
 `;
 
 const InvertedTriangle = styled.div`
@@ -358,7 +416,7 @@ const InvertedTriangle = styled.div`
   height: 0;
   border-left: 20px solid transparent; // 左側の透明な境界
   border-right: 20px solid transparent; // 右側の透明な境界
-  border-top: 40px solid #333; // 上側の色付きの境界（逆三角形の色）
+  border-top: 40px solid #30C986; // 上側の色付きの境界（逆三角形の色）
   margin: 0px auto; // 位置調整
 `;
 
@@ -379,10 +437,18 @@ function App() {
       <Row>
         <Column>
           <SSubheading>電子マネーの普及</SSubheading>
-          <SSubheading>お小遣いに電子マネーを利用したいか？</SSubheading>
+          <Graphtext>
+          <Highlight>お小遣いに電子マネーを利用したいか？</Highlight>
+          </Graphtext>
           <DoughnutContainer>
             <Doughnut data={graph1} options={doughnutOptions} />
           </DoughnutContainer>
+          <Supplement>
+            MMD研究所によるアンケート<br />
+            期間｜2022/1/21~2022/1/24<br />
+            回答｜838人<br />
+            対象｜子供にお小遣いを渡していると回答した親
+          </Supplement>
         </Column>
 
         <Column>
@@ -391,15 +457,24 @@ function App() {
             <br />
             電子マネーを使いづらい
           </SSubheading>
-          <SSubheading>小学校低学年にスマホを持たせているか？</SSubheading>
+          <Graphtext>
+            <Highlight>小学校低学年に<br />スマホを持たせているか？
+            </Highlight>
+            </Graphtext>
           <DoughnutContainer2>
             <Doughnut data={graph2} options={doughnutOptions2} />
           </DoughnutContainer2>
+          <Supplement>
+            家庭における青少年のスマートフォン等の利用等に関する調査<br />
+            期間｜2022/2/24~2022/3/1<br />
+            回答｜2000人<br />
+            対象｜都内在住の小学生・中学生・高校生の保護者
+          </Supplement>
           <SSubheading>スマホを使い始める年齢は平均10.6歳</SSubheading>
         </Column>
       </Row>
 
-      <Text>子供が電子マネーを使う不安</Text>
+      <Huan>子供が電子マネーを使う不安</Huan>
       <BubbleDescription>お金を使いすぎるのではないか</BubbleDescription>
       <BubbleDescription>
         お金を重みを感じられないのではないか
@@ -407,7 +482,7 @@ function App() {
 
       <Text>CONCEPT</Text>
       <Subheading>
-        お金の使用感覚を養う子供向けの電子マネー
+        お金の使用感覚を養う 子供向けの電子マネー
       </Subheading>
 
       <Text>PROBLEM</Text>
@@ -419,7 +494,7 @@ function App() {
         <Column>
           <Textproblem>従来の電子マネー</Textproblem>
           <Imageproblem src="images/densi.png" alt="paycollonのロゴ" />
-          <Textproblem>paycollon</Textproblem>
+          <Textproblemcollon>paycollon</Textproblemcollon>
           <Imageproblem src="images/paycollon.png" alt="paycollonのロゴ" />
         </Column>
         <Column>
@@ -491,8 +566,8 @@ function App() {
 
       <Row>
         <Column>
-          <Text>DESIGN POINT 1</Text>
-          <SSubheading>貯金から少しずつ持ち出す</SSubheading>
+          <Desginp>DESIGN POINT 1</Desginp>
+          <Desgint>貯金から少しずつ持ち出す</Desgint>
         </Column>
         <Column>
           <Imagepaycollonirasuto
@@ -505,10 +580,10 @@ function App() {
       <SSubheading>少しずつ持ち出すことで使い過ぎを防止</SSubheading>
       <VideoComponent src="videos/rotate.mp4" />
 
-      <Text>DESIGN POINT 2</Text>
-      <SSubheading>
+      <Desginp>DESIGN POINT 2</Desginp>
+      <Desgint>
         どのくらい持っているか・どれくらい使ったかを体験できるUI
-      </SSubheading>
+      </Desgint>
       <Row>
         <Column>
           <VideoComponent src="videos/delite.mp4" />
@@ -519,33 +594,33 @@ function App() {
           <SSubheading>振った時は残高を表示</SSubheading>
         </Column>
       </Row>
-      <Text>DESIGN POINT 3</Text>
-      <SSubheading>お小遣いを一緒に届くボイスメッセージ</SSubheading>
+      <Desginp>DESIGN POINT 3</Desginp>
+      <Desgint>お小遣いを一緒に届くボイスメッセージ</Desgint>
       <VideoVoice src="videos/voice.mp4" />
 
       <Row>
         <Column>
-          <Text>DESIGN POINT 4</Text>
-          <SSubheading>大切にしたくなるデバイスの形状</SSubheading>
+          <Desginp>DESIGN POINT 4</Desginp>
+          <Desgint2>大切にしたくなるデバイスの形状</Desgint2>
 
-          <SSubheading>
+          <Textproblem>
             持ち運びやすいサイズ感
             <br />
             所有感の湧きやすいオブジェ感
             <br />
             金銭を象徴する石のモチーフ
-          </SSubheading>
+          </Textproblem>
         </Column>
         <Column>
-          <Imagepaycollonirasuto
+          <Imagedevice
             src="images/collondemo.png"
             alt="paycollonのロゴ"
           />
         </Column>
       </Row>
 
-      <Text>DESIGN POINT 5</Text>
-      <SSubheading>親も安心できる送金以外のアプリの機能</SSubheading>
+      <Desginp>DESIGN POINT 5</Desginp>
+      <Desgint>親も安心できる送金以外のアプリの機能</Desgint>
       <Row>
         <Column>
           <Imagephone src="images/search.png" alt="paycollonのロゴ" />
