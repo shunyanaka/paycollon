@@ -37,6 +37,11 @@ const SSubheading = styled.h2`
   margin: 100px 0 10px; // 上下のマージンを適宜調整
   font-size: 1.6em; // 小見出しのフォントサイズ
 `;
+const Textproblem = styled.h2`
+  color: #333; // ここで色をダークグレイに設定
+  margin: 100px 0 10px; // 上下のマージンを適宜調整
+  font-size: 1.5em; // 小見出しのフォントサイズ
+`;
 
 const Text = styled.h2`
   color: #333; // ここで色をダークグレイに設定
@@ -79,7 +84,7 @@ const VideoComponent = ({
 }) => (
   <Element name="videoElement">
     <VideoWrapper>
-      <Video autoPlay loop>
+      <Video autoPlay loop controls>
         <source src={src} type="video/mp4" />
         {children}
       </Video>
@@ -97,7 +102,7 @@ const VideoVoice = ({
 }) => (
   <Element name="videoElement">
     <VideoWrapper>
-      <VideoV autoPlay loop>
+      <VideoV autoPlay loop controls>
         <source src={src} type="video/mp4" />
         {children}
       </VideoV>
@@ -133,8 +138,8 @@ const graph1 = {
     "利用したい",
     "やや利用したい",
     "どちらとも言えない",
-    "やや利用したくない",
-    "利用したくない",
+    "  やや利用\nしたくない",
+    "    利用\nしたくない",
   ],
   datasets: [
     {
@@ -164,14 +169,14 @@ const graph2 = {
 
 // 円グラフのコンテナをスタイル付きで定義
 const DoughnutContainer = styled.div`
-  width: 600px; // ここで円グラフのサイズを調整
-  height: 600px;
+  width: 500px; // ここで円グラフのサイズを調整
+  height: 500px;
   margin: auto; // 中央揃えにする場合
 `;
 
 const DoughnutContainer2 = styled.div`
-  width: 450px; // ここで円グラフのサイズを調整
-  height: 450px;
+  width: 350px; // ここで円グラフのサイズを調整
+  height: 350px;
   margin: auto; // 中央揃えにする場合
 `;
 
@@ -225,13 +230,13 @@ const Imagelogo = styled.img`
 `;
 
 const Imagephone = styled.img`
-  width: 250px; // 画像のサイズを適宜調整
+  width: 200px; // 画像のサイズを適宜調整
   height: auto;
 `;
 
 // 画像を表示するためのコンポーネント
 const Imageproblem = styled.img`
-  width: 250px; // 画像のサイズを適宜調整
+  width: 180px; // 画像のサイズを適宜調整
   height: auto;
   margin-left: 20px; // タイトルとの間隔を調整
 `;
@@ -254,6 +259,13 @@ const Imagepaycollon = styled.img`
   margin: 60px auto 30px; // タイトルとの間隔を調整
 `;
 
+const Imageproto = styled.img`
+  width: 600px; // 画像のサイズを適宜調整
+  height: auto;
+  margin: 30px auto; // タイトルとの間隔を調整
+  display: block;/
+`;
+
 const Imagepaycollonirasuto = styled.img`
   width: 500px; // 画像のサイズを適宜調整
   height: auto;
@@ -268,7 +280,7 @@ const BubbleDescription = styled(Description)`
   color: #333; // テキストの色
   padding: 20px; // 内側の余白
   border-radius: 25px; // 角を丸くする
-  font-size: 2.0em;
+  font-size: 1.7em;
 
   &:before,
   &:after {
@@ -315,30 +327,30 @@ const CircleDescription = styled(Description)`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 250px; // 円の直径
-  height: 250px;
+  width: 190px; // 円の直径
+  height: 190px;
   margin: 100px auto 40px; // 自動で中央揃え
   border-radius: 50%; // 円形にする
   background-color: #f0f0f0; // 背景色
   color: #333; // テキストの色
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // 影を追加
   padding: 20px; // 内側の余白
-  font-size: 1.5em;
+  font-size: 1.4em;
 `;
 
 const CircleDescription2 = styled(Description)`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 250px; // 円の直径
-  height: 250px;
+  width: 190px; // 円の直径
+  height: 190px;
   margin: 40px auto 0px; // 自動で中央揃え
   border-radius: 50%; // 円形にする
   background-color: #f0f0f0; // 背景色
   color: #333; // テキストの色
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // 影を追加
   padding: 20px; // 内側の余白
-  font-size: 1.5em;
+  font-size: 1.4em;
 `;
 
 const InvertedTriangle = styled.div`
@@ -350,39 +362,12 @@ const InvertedTriangle = styled.div`
   margin: 0px auto; // 位置調整
 `;
 
-// 吹き出しのスタイル
-const SpeechBubble = styled.div`
-  position: absolute;
-  top: 10px; // 位置を調整
-  left: 10px; // 位置を調整
-  background-color: #ffffff;
-  border-radius: 20px;
-  padding: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  max-width: 200px;
-  &:before {
-    content: "";
-    position: absolute;
-    bottom: -20px; // 吹き出しの三角部分の位置を調整
-    left: 50%;
-    border-width: 10px;
-    border-style: solid;
-    border-color: #f0f0f0 transparent transparent transparent;
-  }
-`;
-
-// 吹き出し内のテキスト
-const SpeechText = styled.p`
-  font-size: 1em;
-  color: #333;
-`;
-
 function App() {
   return (
     <Container>
       <TitleRow>
         <TitleColumn>
-          <SubTitle>子供のための電子マネーデバイス</SubTitle>
+          <SubTitle>子供のための<br />電子マネーデバイス</SubTitle>
           <Title>paycollon</Title>
         </TitleColumn>
         <TitleColumn>
@@ -421,9 +406,9 @@ function App() {
       </BubbleDescription>
 
       <Text>CONCEPT</Text>
-      <SSubheading>
+      <Subheading>
         お金の使用感覚を養う子供向けの電子マネー
-      </SSubheading>
+      </Subheading>
 
       <Text>PROBLEM</Text>
       <SSubheading>
@@ -432,9 +417,9 @@ function App() {
 
       <Row>
         <Column>
-          <SSubheading>従来の電子マネー</SSubheading>
+          <Textproblem>従来の電子マネー</Textproblem>
           <Imageproblem src="images/densi.png" alt="paycollonのロゴ" />
-          <SSubheading>paycollon</SSubheading>
+          <Textproblem>paycollon</Textproblem>
           <Imageproblem src="images/paycollon.png" alt="paycollonのロゴ" />
         </Column>
         <Column>
@@ -499,7 +484,7 @@ function App() {
         </NarrowColumn>
 
         <Column>
-          <Imageproblem src="images/phone.png" alt="paycollonのロゴ" />
+          <Imageproblem src="images/phone2.png" alt="paycollonのロゴ" />
           <SSubheading>両親や祖父母が使用するアプリ</SSubheading>
         </Column>
       </Row>
@@ -579,6 +564,11 @@ function App() {
           <SSubheading>ホーム</SSubheading>
         </Column>
       </Row>
+
+      <Text>PROTOTYPE</Text>
+      <Imageproto src="images/proto1.png" alt="paycollonのロゴ" />
+      <Imageproto src="images/proto2.png" alt="paycollonのロゴ" />
+      <Imageproto src="images/proto3.png" alt="paycollonのロゴ" />
     </Container>
   );
 }
