@@ -133,7 +133,7 @@ const VideoComponent = ({
 }) => (
   <Element name="videoElement">
     <VideoWrapper>
-      <Video autoPlay loop>
+      <Video autoPlay loop controls>
         <source src={src} type="video/mp4" />
         {children}
       </Video>
@@ -151,7 +151,7 @@ const VideoVoice = ({
 }) => (
   <Element name="videoElement">
     <VideoWrapper>
-      <VideoV autoPlay loop>
+      <VideoV autoPlay loop controls>
         <source src={src} type="video/mp4" />
         {children}
       </VideoV>
