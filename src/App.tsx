@@ -133,7 +133,7 @@ const VideoComponent = ({
 }) => (
   <Element name="videoElement">
     <VideoWrapper>
-      <Video autoPlay loop controls>
+      <Video autoPlay loop>
         <source src={src} type="video/mp4" />
         {children}
       </Video>
@@ -151,7 +151,7 @@ const VideoVoice = ({
 }) => (
   <Element name="videoElement">
     <VideoWrapper>
-      <VideoV autoPlay loop controls>
+      <VideoV autoPlay loop>
         <source src={src} type="video/mp4" />
         {children}
       </VideoV>
@@ -420,6 +420,13 @@ const InvertedTriangle = styled.div`
   margin: 0px auto; // 位置調整
 `;
 
+const ColumnCentered = styled(Column)`
+  display: flex;
+  flex-direction: column;
+  align-items: center; // 中央揃え
+`;
+
+
 function App() {
   return (
     <Container>
@@ -435,7 +442,7 @@ function App() {
 
       <Text>BACKGROUND</Text>
       <Row>
-        <Column>
+        <ColumnCentered>
           <SSubheading>電子マネーの普及</SSubheading>
           <Graphtext>
           <Highlight>お小遣いに電子マネーを利用したいか？</Highlight>
@@ -449,9 +456,9 @@ function App() {
             回答｜838人<br />
             対象｜子供にお小遣いを渡していると回答した親
           </Supplement>
-        </Column>
+        </ColumnCentered>
 
-        <Column>
+        <ColumnCentered>
           <SSubheading>
             スマホを持っていない世代は
             <br />
@@ -471,7 +478,7 @@ function App() {
             対象｜都内在住の小学生・中学生・高校生の保護者
           </Supplement>
           <SSubheading>スマホを使い始める年齢は平均10.6歳</SSubheading>
-        </Column>
+        </ColumnCentered>
       </Row>
 
       <Huan>子供が電子マネーを使う不安</Huan>
