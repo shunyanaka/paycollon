@@ -35,7 +35,7 @@ const Subheading = styled.h2`
 const SSubheading = styled.h2`
   color: #333; // ここで色をダークグレイに設定
   margin: 100px 0 10px; // 上下のマージンを適宜調整
-  font-size: 1.6em; // 小見出しのフォントサイズ
+  font-size: 1.5em; // 小見出しのフォントサイズ
 `;
 
 const Textproblem = styled.h2`
