@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/paycollon/static/css/main.a55b3996.css",
-    "main.js": "/paycollon/static/js/main.04009c88.js",
+    "main.js": "/paycollon/static/js/main.05fbad59.js",
     "static/js/787.94d8fcf3.chunk.js": "/paycollon/static/js/787.94d8fcf3.chunk.js",
     "index.html": "/paycollon/index.html",
     "main.a55b3996.css.map": "/paycollon/static/css/main.a55b3996.css.map",
-    "main.04009c88.js.map": "/paycollon/static/js/main.04009c88.js.map",
+    "main.05fbad59.js.map": "/paycollon/static/js/main.05fbad59.js.map",
     "787.94d8fcf3.chunk.js.map": "/paycollon/static/js/787.94d8fcf3.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.a55b3996.css",
-    "static/js/main.04009c88.js"
+    "static/js/main.05fbad59.js"
   ]
 }
